@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">TaskieApp</string>
+    <string name="image_welcome">image_welcome</string>
+    <string name="welcome">Bienvenid@ a</string>
+    <string name="messageWelcome">Explora la aplicación. ¡Hagamos una lista con Taskie!</string>
+    <string name="register">Regístrate</string>
+    <string name="textLogin">¿YA TIENES UNA CUENTA?</string>
+    <string name="ingresar">Ingresar</string>
 </resources>

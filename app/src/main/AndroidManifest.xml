@@ -10,7 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskieApp">
         <activity
-            android:name=".MainActivity"
+            android:name=".templatemvvm.ui.register.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".templatemvvm.ui.login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".templatemvvm.ui.onboarding.OnBoardingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

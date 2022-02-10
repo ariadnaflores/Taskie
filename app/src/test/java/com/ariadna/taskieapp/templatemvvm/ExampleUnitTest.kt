@@ -1,4 +1,4 @@
-package com.ariadna.taskieapp
+package com.ariadna.taskieapp.templatemvvm
 
 import org.junit.Test
 
