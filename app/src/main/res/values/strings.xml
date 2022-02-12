@@ -5,5 +5,10 @@
     <string name="messageWelcome">Explora la aplicación. ¡Hagamos una lista con Taskie!</string>
     <string name="register">Regístrate</string>
     <string name="textLogin">¿YA TIENES UNA CUENTA?</string>
-    <string name="ingresar">Ingresar</string>
+    <string name="log_in">Ingresar</string>
+    <string name="backButton">btnback</string>
+    <string name="welcome_again">¡Bienvenido de nuevo!</string>
+    <string name="password">Contraseña</string>
+    <string name="email_address">Correo electrónico</string>
+    <string name="home">Home</string>
 </resources>

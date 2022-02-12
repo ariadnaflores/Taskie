@@ -11,7 +11,7 @@ import com.ariadna.taskieapp.templatemvvm.ui.register.RegisterActivity
 
 class OnBoardingActivity : AppCompatActivity() {
 
-    lateinit var binding : ActivityOnboardingBinding
+    private lateinit var binding : ActivityOnboardingBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

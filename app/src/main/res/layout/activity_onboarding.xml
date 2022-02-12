@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/celeste"
+        android:background="@color/light_blue"
         tools:context=".templatemvvm.ui.onboarding.OnBoardingActivity">
 
         <TextView
@@ -87,9 +87,9 @@
             android:layout_height="59dp"
             android:layout_marginTop="20dp"
             android:backgroundTint="@color/white"
-            android:fontFamily="@font/roboto"
+            android:fontFamily="@font/roboto_black"
             android:text="@string/register"
-            android:textColor="@color/celeste"
+            android:textColor="@color/light_blue"
             app:cornerRadius="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -118,13 +118,13 @@
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ingresar"
-            android:textColor="@color/celesteIntenso"
+            android:text="@string/log_in"
+            android:textColor="@color/intense_sky_blue"
             android:layout_marginTop="-4dp"
             android:layout_marginStart="-16dp"
             android:layout_marginEnd="105dp"
             android:textSize="10sp"
-            android:fontFamily="@font/roboto_bold"
+            android:fontFamily="@font/roboto_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.045"
             app:layout_constraintStart_toEndOf="@+id/textLogin"

@@ -7,7 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="celeste">#90CAF9</color>
-    <color name="gris">#E0E0E0</color>
-    <color name="celesteIntenso">#1E88E5</color>
+    <color name="light_blue">#90CAF9</color>
+    <color name="gray">#E0E0E0</color>
+    <color name="intense_sky_blue">#1E88E5</color>
+    <color name="sky">#F0F5F8</color>
+    <color name="dark_gray">#CFD8DC</color>
 </resources>
