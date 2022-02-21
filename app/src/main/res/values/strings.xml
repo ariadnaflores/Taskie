@@ -11,4 +11,7 @@
     <string name="password">Contraseña</string>
     <string name="email_address">Correo electrónico</string>
     <string name="home">Home</string>
+
+    <!-- Form validation errors -->
+    <string name="form_error_empty_email">Correo electrónico requerido</string>
 </resources>
