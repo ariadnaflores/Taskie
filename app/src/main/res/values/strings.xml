@@ -1,9 +1,22 @@
 <resources>
     <string name="app_name">TaskieApp</string>
-    <string name="image_welcome">image_welcome</string>
-    <string name="welcome">Bienvenid@ a</string>
-    <string name="messageWelcome">Explora la aplicación. ¡Hagamos una lista con Taskie!</string>
-    <string name="register">Regístrate</string>
-    <string name="textLogin">¿YA TIENES UNA CUENTA?</string>
-    <string name="ingresar">Ingresar</string>
+    <string name="welcome_image_content_description">Imagen de Bienvenida</string>
+    <string name="welcome_title">Bienvenid@ a</string>
+    <string name="message_welcome">Explora la aplicación. ¡Hagamos una lista con Taskie!</string>
+    <string name="text_register">Regístrate</string>
+    <string name="text_login">¿YA TIENES UNA CUENTA?</string>
+    <string name="log_in">Ingresar</string>
+    <string name="back_button_content_description">Botón para regresar a la pantalla de inicio</string>
+    <string name="welcome_again_title">¡Bienvenido de nuevo!</string>
+    <string name="user_password">Contraseña</string>
+    <string name="user_email_address">Correo electrónico</string>
+    <string name="home_title">Home</string>
+
+    <!-- Form validation errors -->
+    <string name="form_error_empty_email">Correo electrónico requerido</string>
+    <string name="form_error_invalid_email">Por favor ingrese un correo electrónico válido</string>
+    <string name="form_error_empty_password">Contraseña requerida</string>
+    <string name="form_error_password_length">La contraseña es demasiado corta, ingrese más de 5 caracteres</string>
+    <string name="form_error_invalid_password"></string>
+
 </resources>

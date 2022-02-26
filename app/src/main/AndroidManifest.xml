@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskieApp">
         <activity
+            android:name=".templatemvvm.ui.home.HomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".templatemvvm.ui.register.RegisterActivity"
             android:exported="false" />
         <activity

@@ -1,9 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".templatemvvm.ui.login.LoginActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/sky"
+        tools:context=".templatemvvm.ui.login.LoginActivity">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/buttonBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/sky"
+            android:clickable="true"
+            android:contentDescription="@string/back_button_content_description"
+            android:elevation="15dp"
+            android:focusable="true"
+            android:src="@drawable/buttonback"
+            app:backgroundTint="@color/gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="?attr/actionModeCloseDrawable"
+            tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/titleWelcomeAgain"
+            android:layout_width="238dp"
+            android:layout_height="98dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/roboto_black"
+            android:text="@string/welcome_again_title"
+            android:textSize="40sp"
+            android:textColor="@color/light_blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonBack" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edtEmail"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="60dp"
+            android:fontFamily="@font/roboto"
+            android:textSize="14sp"
+            app:errorEnabled="true"
+            app:errorIconDrawable="@null"
+            android:hint="@string/user_email_address"
+            app:layout_constraintTop_toBottomOf="@+id/titleWelcomeAgain" >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edtPassword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="60dp"
+            android:fontFamily="@font/roboto"
+            android:textSize="14sp"
+            app:passwordToggleEnabled="true"
+            app:errorEnabled="true"
+            app:errorIconDrawable="@null"
+            android:hint="@string/user_password"
+            app:layout_constraintTop_toBottomOf="@+id/edtEmail">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/buttonAccountLogin"
+            android:layout_width="289dp"
+            android:layout_height="59dp"
+            android:layout_marginTop="-80dp"
+            android:backgroundTint="@color/light_blue"
+            android:fontFamily="@font/roboto_black"
+            android:text="@string/log_in"
+            android:textColor="@color/white"
+            app:cornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtPassword"
+            app:layout_constraintVertical_bias="0.504" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
