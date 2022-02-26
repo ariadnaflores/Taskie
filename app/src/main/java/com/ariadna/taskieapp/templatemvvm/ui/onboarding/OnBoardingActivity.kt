@@ -18,7 +18,7 @@ class OnBoardingActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_onboarding)
 
-        binding.buttonLogin.setOnClickListener{
+        binding.textButtonLogin.setOnClickListener{
             val intentLogin = Intent(this, LoginActivity::class.java)
             startActivity(intentLogin)
         }

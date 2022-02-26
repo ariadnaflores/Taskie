@@ -21,7 +21,7 @@
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/sky"
             android:clickable="true"
-            android:contentDescription="@string/backButton"
+            android:contentDescription="@string/back_button_content_description"
             android:elevation="15dp"
             android:focusable="true"
             android:src="@drawable/buttonback"
@@ -38,7 +38,7 @@
             android:layout_marginStart="50dp"
             android:layout_marginTop="28dp"
             android:fontFamily="@font/roboto_black"
-            android:text="@string/welcome_again"
+            android:text="@string/welcome_again_title"
             android:textSize="40sp"
             android:textColor="@color/light_blue"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,7 @@
             android:textSize="14sp"
             app:errorEnabled="true"
             app:errorIconDrawable="@null"
-            android:hint="@string/email_address"
+            android:hint="@string/user_email_address"
             app:layout_constraintTop_toBottomOf="@+id/titleWelcomeAgain" >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -80,7 +80,7 @@
             app:passwordToggleEnabled="true"
             app:errorEnabled="true"
             app:errorIconDrawable="@null"
-            android:hint="@string/password"
+            android:hint="@string/user_password"
             app:layout_constraintTop_toBottomOf="@+id/edtEmail">
 
             <com.google.android.material.textfield.TextInputEditText
