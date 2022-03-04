@@ -10,7 +10,10 @@
     <string name="welcome_again_title">¡Bienvenido de nuevo!</string>
     <string name="user_password">Contraseña</string>
     <string name="user_email_address">Correo electrónico</string>
+    <string name="save_user">Guardar sesión</string>
     <string name="home_title">Home</string>
+    <string name="button_exit">Cerrar Sesión</string>
+
 
     <!-- Form validation errors -->
     <string name="form_error_empty_email">Correo electrónico requerido</string>

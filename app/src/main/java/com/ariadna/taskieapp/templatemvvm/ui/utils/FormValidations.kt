@@ -43,12 +43,6 @@ class FormValidations {
 
         val passwordLength = password.length >4
 
-        /*val passwordRegexLength = Pattern.compile(
-            "^" +
-                    ".{6,}" +               //al menos 5 caracteres
-                    "$"
-        )*/
-
         return when {
             password.isEmpty() -> {
                 passwordState = PasswordValidationState.EmptyPassword
@@ -72,6 +66,7 @@ class FormValidations {
     fun isFormValid(): Boolean {
         return isEmailValid() && isPasswordValid()
     }
+
 }
 
 enum class EmailValidationState {

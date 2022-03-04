@@ -7,6 +7,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.ariadna.taskieapp.R
 import com.ariadna.taskieapp.databinding.ActivityLoginBinding
+import com.ariadna.taskieapp.templatemvvm.data.local.PrefsUser
+import com.ariadna.taskieapp.templatemvvm.data.repository.TaskieRepository
 import com.ariadna.taskieapp.templatemvvm.ui.home.HomeActivity
 import com.ariadna.taskieapp.templatemvvm.ui.login.viewModel.*
 import com.ariadna.taskieapp.templatemvvm.ui.utils.FormValidations
@@ -16,7 +18,9 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
 
     private val viewModel: LoginViewModel by lazy {
-        val factory = LoginViewModelFactory(FormValidations())
+        val factory = LoginViewModelFactory(FormValidations(),
+            TaskieRepository(PrefsUser())
+        )
         ViewModelProvider(this@LoginActivity, factory)[LoginViewModel::class.java]
     }
 
@@ -28,9 +32,12 @@ class LoginActivity : AppCompatActivity() {
         binding.buttonBack.setOnClickListener {
             finish()
         }
-        subscribeObservers()
+        initUI()
+    }
+
+    private fun initUI(){
         binding.buttonAccountLogin.setOnClickListener {
-            //validate()
+            subscribeObservers()
             viewModel.checkFields(
                 userEmail = binding.edtEmail.editText?.text.toString(),
                 userPassword = binding.edtPassword.editText?.text.toString()
@@ -54,10 +61,10 @@ class LoginActivity : AppCompatActivity() {
                 UserLoggedIn -> {
                     binding.edtEmail.error = null
                     binding.edtPassword.error = null
-                    binding.buttonAccountLogin.setOnClickListener{
-                        val intentRegister = Intent(this, HomeActivity::class.java)
-                        startActivity(intentRegister)
-                    }
+                    viewModel.saveDataInPreferences(email = binding.textInputEditTextEmail.text.toString(),
+                    isUserLoggedIn = binding.cbSaveUser.isChecked)
+                    val intentRegister = Intent(this, HomeActivity::class.java)
+                    startActivity(intentRegister)
                 }
                 UserEmptyPassword -> {
                     binding.edtPassword.error = getString(R.string.form_error_empty_password)

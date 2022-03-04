@@ -3,12 +3,14 @@ package com.ariadna.taskieapp.templatemvvm.ui.login.viewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.ariadna.taskieapp.templatemvvm.data.repository.TaskieRepository
 import com.ariadna.taskieapp.templatemvvm.ui.utils.EmailValidationState
 import com.ariadna.taskieapp.templatemvvm.ui.utils.FormValidations
 import com.ariadna.taskieapp.templatemvvm.ui.utils.PasswordValidationState
 
 class LoginViewModel(
-    private val formValidator: FormValidations
+    private val formValidator: FormValidations,
+    private val taskieRepository: TaskieRepository
 ) : ViewModel() {
 
     private val loginViewStateMutableLiveData = MutableLiveData<LoginViewState>()
@@ -52,8 +54,12 @@ class LoginViewModel(
             }
         }
     }
-}
 
+    fun saveDataInPreferences(email: String, isUserLoggedIn: Boolean){
+        taskieRepository.saveUserEmail(email = email)
+        taskieRepository.saveIsUserLoggedIn(user = isUserLoggedIn)
+    }
+}
 
 sealed class LoginViewState
 
