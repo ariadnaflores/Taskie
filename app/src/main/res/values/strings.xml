@@ -13,6 +13,11 @@
     <string name="save_user">Guardar sesión</string>
     <string name="home_title">Home</string>
     <string name="button_exit">Cerrar Sesión</string>
+    <string name="welcome_title_register">¡Hola! Regístrate para empezar</string>
+    <string name="user_name">Nombre</string>
+    <string name="text_start">Empezar</string>
+
+
 
 
     <!-- Form validation errors -->
