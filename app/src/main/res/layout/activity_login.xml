@@ -61,6 +61,7 @@
             app:layout_constraintTop_toBottomOf="@+id/titleWelcomeAgain" >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditTextEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"/>
@@ -89,6 +90,15 @@
                 android:inputType="textPassword"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <CheckBox
+            android:id="@+id/cbSaveUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:text="@string/save_user"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtPassword"
+            app:useMaterialThemeColors="@color/light_blue" />
 
         <Button
             android:id="@+id/buttonAccountLogin"

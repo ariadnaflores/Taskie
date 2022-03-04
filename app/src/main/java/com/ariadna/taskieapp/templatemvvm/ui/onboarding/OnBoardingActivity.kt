@@ -27,6 +27,5 @@ class OnBoardingActivity : AppCompatActivity() {
             val intentRegister = Intent(this, RegisterActivity::class.java)
             startActivity(intentRegister)
         }
-
     }
 }
