@@ -83,6 +83,8 @@ class RegisterActivity : AppCompatActivity() {
                 UserSuccessfullyCreatedInFirebase -> {
                     Toast.makeText(this,getString(R.string.user_successfully_created), Toast.LENGTH_LONG).show()
                     Toast.makeText(this,getString(R.string.email_sent), Toast.LENGTH_LONG).show()
+                    val intentRegister = Intent(this, LoginActivity::class.java)
+                    startActivity(intentRegister)
                     finish()
                 }
                 UnsuccessfulUserInFirebase -> {
