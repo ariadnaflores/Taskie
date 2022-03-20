@@ -8,17 +8,22 @@ import androidx.lifecycle.ViewModelProvider
 import com.ariadna.taskieapp.R
 import com.ariadna.taskieapp.databinding.ActivityHomeBinding
 import com.ariadna.taskieapp.templatemvvm.data.local.PrefsUser
+import com.ariadna.taskieapp.templatemvvm.data.remote.FirebaseAuthManager
 import com.ariadna.taskieapp.templatemvvm.data.repository.TaskieRepository
+import com.ariadna.taskieapp.templatemvvm.data.repository.home.HomeRepository
 import com.ariadna.taskieapp.templatemvvm.ui.home.viewModel.HomeViewModel
 import com.ariadna.taskieapp.templatemvvm.ui.home.viewModel.HomeViewModelFactory
-
+import com.ariadna.taskieapp.templatemvvm.ui.home.viewModel.UserLogOut
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
 
     private val viewModel:HomeViewModel by lazy {
-        val factory = HomeViewModelFactory(TaskieRepository(PrefsUser()))
+        val factory = HomeViewModelFactory(
+            TaskieRepository(PrefsUser()),
+            HomeRepository(firebaseAuthManager = FirebaseAuthManager())
+        )
         ViewModelProvider(this@HomeActivity,factory)[HomeViewModel::class.java]
     }
 
@@ -29,10 +34,12 @@ class HomeActivity : AppCompatActivity() {
 
         initUI()
 
-        binding.buttonExit.setOnClickListener{
+        binding.buttonExit.setOnClickListener {
+            viewModel.logOut()
             viewModel.deleteData()
-            onBackPressed()
+            //onBackPressed()
         }
+
     }
 
     private fun initUI(){
@@ -40,6 +47,16 @@ class HomeActivity : AppCompatActivity() {
         if (viewModel.validateIsUserLoggedIn()){
             Toast.makeText(this,"Sesión guardada", Toast.LENGTH_LONG).show()
         }
+        subscribeObservers()
     }
 
-}
+    private fun subscribeObservers() {
+        viewModel.homeViewStateLiveData.observe(this) {
+            when (it) {
+                UserLogOut -> {
+
+                    }
+                }
+            }
+        }
+    }

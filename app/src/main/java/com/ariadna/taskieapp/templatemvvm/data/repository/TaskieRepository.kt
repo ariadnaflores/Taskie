@@ -17,9 +17,7 @@ class TaskieRepository(
     fun saveIsUserLoggedIn(user:Boolean){
         prefsUser.saveIsUserLoggedIn(user)
     }
-
     fun wipe() {
         prefsUser.wipe()
     }
-
 }
