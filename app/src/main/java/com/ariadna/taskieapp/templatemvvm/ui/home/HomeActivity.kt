@@ -1,5 +1,6 @@
 package com.ariadna.taskieapp.templatemvvm.ui.home
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -8,17 +9,23 @@ import androidx.lifecycle.ViewModelProvider
 import com.ariadna.taskieapp.R
 import com.ariadna.taskieapp.databinding.ActivityHomeBinding
 import com.ariadna.taskieapp.templatemvvm.data.local.PrefsUser
+import com.ariadna.taskieapp.templatemvvm.data.remote.FirebaseAuthManager
 import com.ariadna.taskieapp.templatemvvm.data.repository.TaskieRepository
+import com.ariadna.taskieapp.templatemvvm.data.repository.home.HomeRepository
 import com.ariadna.taskieapp.templatemvvm.ui.home.viewModel.HomeViewModel
 import com.ariadna.taskieapp.templatemvvm.ui.home.viewModel.HomeViewModelFactory
-
+import com.ariadna.taskieapp.templatemvvm.ui.home.viewModel.UserLogOut
+import com.ariadna.taskieapp.templatemvvm.ui.onboarding.OnBoardingActivity
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
 
     private val viewModel:HomeViewModel by lazy {
-        val factory = HomeViewModelFactory(TaskieRepository(PrefsUser()))
+        val factory = HomeViewModelFactory(
+            TaskieRepository(PrefsUser()),
+            HomeRepository(firebaseAuthManager = FirebaseAuthManager(), prefsUser = PrefsUser())
+        )
         ViewModelProvider(this@HomeActivity,factory)[HomeViewModel::class.java]
     }
 
@@ -28,10 +35,10 @@ class HomeActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
 
         initUI()
+        subscribeObservers()
 
-        binding.buttonExit.setOnClickListener{
-            viewModel.deleteData()
-            onBackPressed()
+        binding.buttonExit.setOnClickListener {
+            viewModel.logOut()
         }
     }
 
@@ -42,4 +49,16 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-}
+    private fun subscribeObservers() {
+        viewModel.homeViewStateLiveData.observe(this) {
+            when (it) {
+                UserLogOut -> {
+                    finish()
+                    val intentLogOut = Intent(this, OnBoardingActivity::class.java)
+                    startActivity(intentLogOut)
+                    Toast.makeText(this, getString(R.string.log_out),Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
+        }
+    }

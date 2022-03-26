@@ -13,13 +13,14 @@
         <entry key="..\:/Users/Ariadna/AndroidStudioProjects/TaskieApp/app/src/main/res/layout/activity_login.xml" value="0.2393617021276596" />
         <entry key="..\:/Users/Ariadna/AndroidStudioProjects/TaskieApp/app/src/main/res/layout/activity_main.xml" value="0.67" />
         <entry key="..\:/Users/Ariadna/AndroidStudioProjects/TaskieApp/app/src/main/res/layout/activity_onboarding.xml" value="0.33" />
-        <entry key="..\:/Users/Ariadna/AndroidStudioProjects/TaskieApp/app/src/main/res/layout/activity_register.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Ariadna/AndroidStudioProjects/TaskieApp/app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.309375" />
         <entry key="app/src/main/res/layout/activity_onboarding.xml" value="0.28391167192429023" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.19610507246376813" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

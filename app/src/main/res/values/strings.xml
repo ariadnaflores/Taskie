@@ -13,13 +13,21 @@
     <string name="save_user">Guardar sesión</string>
     <string name="home_title">Home</string>
     <string name="button_exit">Cerrar Sesión</string>
-
+    <string name="welcome_title_register">¡Hola! Regístrate para empezar</string>
+    <string name="user_name">Nombre</string>
+    <string name="text_start">Empezar</string>
 
     <!-- Form validation errors -->
     <string name="form_error_empty_email">Correo electrónico requerido</string>
     <string name="form_error_invalid_email">Por favor ingrese un correo electrónico válido</string>
     <string name="form_error_empty_password">Contraseña requerida</string>
     <string name="form_error_password_length">La contraseña es demasiado corta, ingrese más de 5 caracteres</string>
-    <string name="form_error_invalid_password"></string>
+    <string name="form_error_invalid_password">La contraseña no es válida</string>
+    <string name="user_successfully_created">Tus datos fueron registrados correctamente</string>
+    <string name="unsuccessful_user_created">No se registraron los datos</string>
+    <string name="user_successful_login">Inicio de sesión correcto</string>
+    <string name="user_failed_login">Ocurrió un error en el inicio de sesión</string>
+    <string name="email_sent">Se envío un correo de verificación</string>
+    <string name="log_out">Sesión cerrada</string>
 
 </resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "455148677477",
+    "project_id": "taskie-ec61f",
+    "storage_bucket": "taskie-ec61f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:455148677477:android:c1580d2d094cae7645198c",
+        "android_client_info": {
+          "package_name": "com.ariadna.taskieapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "455148677477-sutsu7is3s6t6i8dp9v6bmhmhcrjeln4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfJilmGhF_HylWD_EO_-rc83ArCBKRMdU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "455148677477-sutsu7is3s6t6i8dp9v6bmhmhcrjeln4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
