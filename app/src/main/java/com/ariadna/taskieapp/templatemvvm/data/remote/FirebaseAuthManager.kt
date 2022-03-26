@@ -16,7 +16,8 @@ class FirebaseAuthManager {
         userEmail: String,
         userPassword: String,
         activity: AppCompatActivity,
-        onSuccess: () -> Unit
+        onSuccess: () -> Unit,
+        onFailed: (messageError :String) -> Unit
     ) {
         firebaseAuth.signInWithEmailAndPassword(userEmail, userPassword)
             .addOnCompleteListener(activity) { task ->
@@ -25,7 +26,7 @@ class FirebaseAuthManager {
                     onSuccess.invoke()
                 }
             }.addOnFailureListener {
-                Log.e("Task message error", "${it.localizedMessage}")
+                onFailed.invoke("${it.localizedMessage}")
             }
     }
 

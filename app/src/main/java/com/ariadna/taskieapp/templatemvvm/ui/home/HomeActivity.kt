@@ -1,5 +1,6 @@
 package com.ariadna.taskieapp.templatemvvm.ui.home
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -14,6 +15,7 @@ import com.ariadna.taskieapp.templatemvvm.data.repository.home.HomeRepository
 import com.ariadna.taskieapp.templatemvvm.ui.home.viewModel.HomeViewModel
 import com.ariadna.taskieapp.templatemvvm.ui.home.viewModel.HomeViewModelFactory
 import com.ariadna.taskieapp.templatemvvm.ui.home.viewModel.UserLogOut
+import com.ariadna.taskieapp.templatemvvm.ui.onboarding.OnBoardingActivity
 
 class HomeActivity : AppCompatActivity() {
 
@@ -22,7 +24,7 @@ class HomeActivity : AppCompatActivity() {
     private val viewModel:HomeViewModel by lazy {
         val factory = HomeViewModelFactory(
             TaskieRepository(PrefsUser()),
-            HomeRepository(firebaseAuthManager = FirebaseAuthManager())
+            HomeRepository(firebaseAuthManager = FirebaseAuthManager(), prefsUser = PrefsUser())
         )
         ViewModelProvider(this@HomeActivity,factory)[HomeViewModel::class.java]
     }
@@ -33,13 +35,11 @@ class HomeActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
 
         initUI()
+        subscribeObservers()
 
         binding.buttonExit.setOnClickListener {
             viewModel.logOut()
-            viewModel.deleteData()
-            //onBackPressed()
         }
-
     }
 
     private fun initUI(){
@@ -47,14 +47,16 @@ class HomeActivity : AppCompatActivity() {
         if (viewModel.validateIsUserLoggedIn()){
             Toast.makeText(this,"Sesión guardada", Toast.LENGTH_LONG).show()
         }
-        subscribeObservers()
     }
 
     private fun subscribeObservers() {
         viewModel.homeViewStateLiveData.observe(this) {
             when (it) {
                 UserLogOut -> {
-
+                    finish()
+                    val intentLogOut = Intent(this, OnBoardingActivity::class.java)
+                    startActivity(intentLogOut)
+                    Toast.makeText(this, getString(R.string.log_out),Toast.LENGTH_LONG).show()
                     }
                 }
             }

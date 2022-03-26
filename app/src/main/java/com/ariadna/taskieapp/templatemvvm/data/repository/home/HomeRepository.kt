@@ -1,14 +1,15 @@
 package com.ariadna.taskieapp.templatemvvm.data.repository.home
 
+import com.ariadna.taskieapp.templatemvvm.data.local.PrefsUser
 import com.ariadna.taskieapp.templatemvvm.data.remote.FirebaseAuthManager
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 
 class HomeRepository(
-    private val firebaseAuthManager: FirebaseAuthManager
+    private val firebaseAuthManager: FirebaseAuthManager,
+    private val prefsUser: PrefsUser
 ) {
     fun logOut() {
         firebaseAuthManager.logOut()
+        prefsUser.wipe()
     }
 
 }

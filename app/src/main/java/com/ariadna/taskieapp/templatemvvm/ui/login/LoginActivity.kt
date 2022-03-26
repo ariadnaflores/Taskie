@@ -34,19 +34,19 @@ class LoginActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
-        binding.buttonBack.setOnClickListener {
-            finish()
-        }
         initUI()
+        subscribeObservers()
     }
 
     private fun initUI() {
         binding.buttonAccountLogin.setOnClickListener {
-            subscribeObservers()
             viewModel.checkFields(
                 userEmail = binding.edtEmail.editText?.text.toString(),
                 userPassword = binding.edtPassword.editText?.text.toString()
             )
+        }
+        binding.buttonBack.setOnClickListener {
+            finish()
         }
     }
 
@@ -83,8 +83,8 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(intentRegister)
                     Toast.makeText(this,getString(R.string.user_successful_login), Toast.LENGTH_LONG).show()
                 }
-                FirebaseFailed ->{
-                    Toast.makeText(this,getString(R.string.user_failed_login), Toast.LENGTH_LONG).show()
+                is FirebaseFailed -> {
+                    Toast.makeText(this,"${it.error}", Toast.LENGTH_LONG).show()
                 }
             }
         }

@@ -28,5 +28,6 @@
     <string name="user_successful_login">Inicio de sesión correcto</string>
     <string name="user_failed_login">Ocurrió un error en el inicio de sesión</string>
     <string name="email_sent">Se envío un correo de verificación</string>
+    <string name="log_out">Sesión cerrada</string>
 
 </resources>

@@ -31,24 +31,24 @@ class RegisterActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
 
-        binding.buttonBack.setOnClickListener {
-            finish()
-        }
-
         binding.textButtonLogin.setOnClickListener{
             val intentLogin = Intent(this, LoginActivity::class.java)
             startActivity(intentLogin)
         }
+
         initUI()
+        subscribeObservers()
     }
 
     private fun initUI(){
         binding.buttonAccountRegister.setOnClickListener{
-            subscribeObservers()
             viewModel.checkFields(
                 userEmail = binding.edtEmail.editText?.text.toString(),
                 userPassword = binding.edtPassword.editText?.text.toString()
             )
+        }
+        binding.buttonBack.setOnClickListener {
+            finish()
         }
     }
 

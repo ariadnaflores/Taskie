@@ -60,8 +60,7 @@ class LoginViewModel(
     fun signIn(
         userEmail: String,
         userPassword: String,
-        activity: AppCompatActivity,
-
+        activity: AppCompatActivity
     ) {
         loginRepository.signIn(userEmail, userPassword, activity, onSuccess = {
             Log.e("From Viewmodel success", "------------")
@@ -69,7 +68,7 @@ class LoginViewModel(
         },
             onFailed = {
                 Log.e("From Viewmodel failed", "User already login")
-                loginViewStateMutableLiveData.postValue(FirebaseFailed)
+                loginViewStateMutableLiveData.postValue(FirebaseFailed(error = it))
             })
     }
 }
@@ -86,7 +85,7 @@ object UserInvalidPasswordLength : LoginViewState()
 object UserValidPassword : LoginViewState()
 
 object FirebaseSuccessful : LoginViewState()
-object FirebaseFailed : LoginViewState()
+data class FirebaseFailed(val error : String) : LoginViewState()
 
 
 

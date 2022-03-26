@@ -9,7 +9,7 @@ class LoginRepository(
     private val prefsUser: PrefsUser
 ) {
 
-    private fun saveUserEmail(email:String) {
+    private fun saveUserEmail(email: String) {
         prefsUser.saveEmail(email)
     }
 
@@ -27,15 +27,22 @@ class LoginRepository(
         userPassword: String,
         activity: AppCompatActivity,
         onSuccess: () -> Unit,
-        onFailed: () -> Unit
+        onFailed: (messageError: String) -> Unit
     ) {
         if (!prefsUser.getIsUserLoggedIn()) {
-            firebaseAuthManager.signIn(userEmail, userPassword, activity) {
-                saveDataInPreferences(email = userEmail, isUserLoggedIn = true)
-                onSuccess.invoke()
-            }
+            firebaseAuthManager.signIn(
+                userEmail = userEmail,
+                userPassword = userPassword,
+                activity = activity,
+                onSuccess = {
+                    saveDataInPreferences(email = userEmail, isUserLoggedIn = true)
+                    onSuccess.invoke()
+                },
+                onFailed = {
+                onFailed.invoke(it)
+            })
         } else {
-            onFailed.invoke()
+            onSuccess.invoke()
         }
     }
 }
