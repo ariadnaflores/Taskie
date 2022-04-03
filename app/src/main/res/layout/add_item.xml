@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="UselessParent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/light_blue"
+                android:elevation="15dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/add_note"
+                android:textColor="@color/white"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                tools:ignore="TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/titleNoteInDialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/shape_background"
+                android:hint="@string/title_note_dialog"
+                android:inputType="text"
+                android:padding="15dp"
+                android:textColor="@color/intense_sky_blue"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="Autofill,TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/contentNoteInDialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/shape_background"
+                android:hint="@string/content_note_in_dialog"
+                android:inputType="text"
+                android:padding="15dp"
+                android:textColor="@color/intense_sky_blue"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="Autofill,TextContrastCheck" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

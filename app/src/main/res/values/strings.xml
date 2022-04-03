@@ -16,6 +16,12 @@
     <string name="welcome_title_register">¡Hola! Regístrate para empezar</string>
     <string name="user_name">Nombre</string>
     <string name="text_start">Empezar</string>
+    <string name="add_button_content_description">Botón para agregar una nota</string>
+    <string name="drop_down_menu_button_content_description">Botón para desplegar el menú</string>
+    <string name="note_title_card_view">Titulo</string>
+    <string name="note_description_card_view">Descripción</string>
+    <string name="more_button_content_description">Botón para </string>
+
 
     <!-- Form validation errors -->
     <string name="form_error_empty_email">Correo electrónico requerido</string>
@@ -26,8 +32,15 @@
     <string name="user_successfully_created">Tus datos fueron registrados correctamente</string>
     <string name="unsuccessful_user_created">No se registraron los datos</string>
     <string name="user_successful_login">Inicio de sesión correcto</string>
+    <string name="saved_session">Sesión guardada</string>
     <string name="user_failed_login">Ocurrió un error en el inicio de sesión</string>
     <string name="email_sent">Se envío un correo de verificación</string>
     <string name="log_out">Sesión cerrada</string>
+    <string name="textview">Demo</string>
+    <string name="add_note">Agrega una nota</string>
+    <string name="title_note_dialog">Título</string>
+    <string name="content_note_in_dialog">Empiece a escribir su nota...</string>
+    <string name="message_dialog_ok">Se agregó la nota con éxito</string>
+    <string name="message_dialog_cancel">Nota cancelada</string>
 
 </resources>

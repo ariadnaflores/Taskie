@@ -14,9 +14,19 @@
         <entry key="..\:/Users/Ariadna/AndroidStudioProjects/TaskieApp/app/src/main/res/layout/activity_main.xml" value="0.67" />
         <entry key="..\:/Users/Ariadna/AndroidStudioProjects/TaskieApp/app/src/main/res/layout/activity_onboarding.xml" value="0.33" />
         <entry key="..\:/Users/Ariadna/AndroidStudioProjects/TaskieApp/app/src/main/res/layout/activity_register.xml" value="0.25" />
+        <entry key="app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.1095" />
+        <entry key="app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1095" />
+        <entry key="app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.1095" />
+        <entry key="app/src/main/res/drawable/shape_background.xml" value="0.223" />
+        <entry key="app/src/main/res/layout/activity_add_note.xml" value="0.2223731884057971" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.2223731884057971" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.309375" />
         <entry key="app/src/main/res/layout/activity_onboarding.xml" value="0.28391167192429023" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/add_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/add_note.xml" value="0.2223731884057971" />
+        <entry key="app/src/main/res/layout/list_item.xml" value="0.335" />
+        <entry key="app/src/main/res/menu/bottom_bar.xml" value="0.335" />
       </map>
     </option>
   </component>
