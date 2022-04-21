@@ -17,15 +17,22 @@ class RegisterRepository (
         userPassword: String,
         activity: AppCompatActivity,
         onSuccess: () -> Unit,
-        onFailed: () -> Unit
+        onFailed: (messageError: String) -> Unit
     ) {
         if (!prefsUser.getIsUserLoggedIn()) {
-            firebaseAuthManager.createUser(userEmail, userPassword, activity){
-                sendEmailVerification()
-                onSuccess.invoke()
-            }
+            firebaseAuthManager.createUser(
+                userEmail = userEmail,
+                userPassword = userPassword,
+                activity = activity,
+                onSuccess = {
+                    sendEmailVerification()
+                    onSuccess.invoke()
+                },
+                onFailed =  {
+                onFailed.invoke(it)
+            })
         } else {
-            onFailed.invoke()
+                onFailed.invoke("datos ya registrados")
         }
     }
 

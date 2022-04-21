@@ -29,8 +29,9 @@
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="@string/add_note"
+                android:fontFamily="@font/rubik_light"
                 android:textColor="@color/white"
-                android:textSize="19sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 tools:ignore="TextContrastCheck" />
 
@@ -44,6 +45,7 @@
                 android:layout_marginBottom="5dp"
                 android:background="@drawable/shape_background"
                 android:hint="@string/title_note_dialog"
+                android:fontFamily="@font/roboto"
                 android:inputType="text"
                 android:padding="15dp"
                 android:textColor="@color/intense_sky_blue"
@@ -61,12 +63,38 @@
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/shape_background"
                 android:hint="@string/content_note_in_dialog"
+                android:fontFamily="@font/roboto"
                 android:inputType="text"
                 android:padding="15dp"
                 android:textColor="@color/intense_sky_blue"
                 android:textSize="18sp"
-                android:textStyle="bold"
                 tools:ignore="Autofill,TextContrastCheck" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <RadioButton android:id="@+id/highRadioButtonPriority"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/priority_high"
+                    android:fontFamily="@font/rubik_light"
+                    />
+                <RadioButton android:id="@+id/mediumRadioButtonPriority"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/priority_medium"
+                    android:fontFamily="@font/rubik_light"
+                    />
+                <RadioButton android:id="@+id/lowRadioButtonPriority"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/priority_low"
+                    android:fontFamily="@font/rubik_light"
+                    />
+            </RadioGroup>
 
         </LinearLayout>
 

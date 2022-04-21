@@ -68,7 +68,7 @@ class RegisterViewModel(
            },
                onFailed = {
                    Log.e("From Register Viewmodel failed", "User failed")
-                   registerViewStateMutableLiveData.postValue(UnsuccessfulUserInFirebase)
+                   registerViewStateMutableLiveData.postValue(UnsuccessfulUserInFirebase(error = it))
                })
     }
 }
@@ -84,5 +84,5 @@ object UserInvalidPasswordLength : RegisterViewState()
 object UserValidPassword : RegisterViewState()
 
 object UserSuccessfullyCreatedInFirebase : RegisterViewState()
-object UnsuccessfulUserInFirebase : RegisterViewState()
+data class UnsuccessfulUserInFirebase (val error : String) : RegisterViewState()
 

@@ -87,8 +87,9 @@ class RegisterActivity : AppCompatActivity() {
                     startActivity(intentRegister)
                     finish()
                 }
-                UnsuccessfulUserInFirebase -> {
-                    Toast.makeText(this,getString(R.string.unsuccessful_user_created), Toast.LENGTH_LONG).show()
+                is UnsuccessfulUserInFirebase -> {
+                    Toast.makeText(this,"${it.error}", Toast.LENGTH_LONG).show()
+                    //Toast.makeText(this,getString(R.string.unsuccessful_user_created), Toast.LENGTH_LONG).show()
                 }
             }
         }

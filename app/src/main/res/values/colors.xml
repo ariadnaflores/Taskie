@@ -12,4 +12,8 @@
     <color name="intense_sky_blue">#1E88E5</color>
     <color name="sky">#F0F5F8</color>
     <color name="dark_gray">#CFD8DC</color>
+    <color name="dark_indigo">#5870cb</color>
+    <color name="p_dark_blue">#4d82c</color>
+    <color name="primary_blue">#82b1ff</color>
+
 </resources>

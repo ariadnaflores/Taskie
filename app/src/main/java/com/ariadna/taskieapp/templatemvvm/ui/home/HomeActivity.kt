@@ -16,6 +16,7 @@ import com.ariadna.taskieapp.databinding.AddItemBinding
 import com.ariadna.taskieapp.templatemvvm.data.local.PrefsUser
 import com.ariadna.taskieapp.templatemvvm.data.remote.FirebaseAuthManager
 import com.ariadna.taskieapp.templatemvvm.data.repository.TaskieRepository
+import com.ariadna.taskieapp.templatemvvm.data.repository.data.PriorityColor
 import com.ariadna.taskieapp.templatemvvm.data.repository.data.UserDataNotes
 import com.ariadna.taskieapp.templatemvvm.data.repository.home.HomeRepository
 import com.ariadna.taskieapp.templatemvvm.ui.home.viewModel.HomeViewModel
@@ -54,7 +55,7 @@ class HomeActivity : AppCompatActivity() {
         }*/
 
         noteList = ArrayList()
-        userAdapter = UserAdapter(this,noteList)
+        userAdapter = UserAdapter(noteList)
         listRecyler.layoutManager = LinearLayoutManager(this)
         listRecyler.adapter = userAdapter
         addingButton.setOnClickListener{
@@ -73,8 +74,26 @@ class HomeActivity : AppCompatActivity() {
             dialog,_->
             val title = dialogBinding.titleNoteInDialog.text.toString()
             val content = dialogBinding.contentNoteInDialog.text.toString()
-            noteList.add(UserDataNotes("Titulo : $title", "Contenido $content"))
-            userAdapter.notifyDataSetChanged()
+
+            var priority : PriorityColor = PriorityColor.LOW
+                when{
+                    dialogBinding.highRadioButtonPriority.isChecked -> {
+                        priority = PriorityColor.HIGH
+                    }
+                    dialogBinding.mediumRadioButtonPriority.isChecked -> {
+                        priority = PriorityColor.MEDIUM
+                    }
+                    dialogBinding.lowRadioButtonPriority.isChecked -> {
+                        priority = PriorityColor.LOW
+                    }
+            }
+
+            userAdapter.addNote(
+                title = title,
+                content = content,
+                priorityColor = priority
+            )
+
             Toast.makeText(this,getString(R.string.message_dialog_ok),Toast.LENGTH_SHORT).show()
             dialog.dismiss()
 

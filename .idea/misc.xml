@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.10260416666666666" />
         <entry key="..\:/Users/Ariadna/AndroidStudioProjects/TaskieApp/app/src/main/res/font/roboto.xml" value="0.21822916666666667" />
         <entry key="..\:/Users/Ariadna/AndroidStudioProjects/TaskieApp/app/src/main/res/font/roboto_bold.xml" value="0.21822916666666667" />
         <entry key="..\:/Users/Ariadna/AndroidStudioProjects/TaskieApp/app/src/main/res/font/roboto_condensed_regular.xml" value="0.21822916666666667" />
@@ -27,6 +28,7 @@
         <entry key="app/src/main/res/layout/add_note.xml" value="0.2223731884057971" />
         <entry key="app/src/main/res/layout/list_item.xml" value="0.335" />
         <entry key="app/src/main/res/menu/bottom_bar.xml" value="0.335" />
+        <entry key="app/src/main/res/menu/show_options.xml" value="0.335" />
       </map>
     </option>
   </component>

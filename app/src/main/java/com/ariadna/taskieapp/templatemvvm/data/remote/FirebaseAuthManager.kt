@@ -34,7 +34,8 @@ class FirebaseAuthManager {
         userEmail: String,
         userPassword: String,
         activity: AppCompatActivity,
-        onSuccess: () -> Unit
+        onSuccess: () -> Unit,
+        onFailed: (messageError: String) -> Unit
     ) {
         firebaseAuth.createUserWithEmailAndPassword(userEmail, userPassword)
             .addOnCompleteListener(activity) { task ->
@@ -42,11 +43,11 @@ class FirebaseAuthManager {
                     Log.e("Task message", "Successful user creation.....")
                     sendEmailVerification()
                     onSuccess.invoke()
-                } else {
-                    Log.e("Task message", "Unsuccessful user.....", task.exception)
                 }
+            }.addOnFailureListener {
+                    onFailed.invoke("${it.localizedMessage}")
             }
-    }
+        }
 
     private fun sendEmailVerification() {
         val user = Firebase.auth.currentUser
@@ -61,4 +62,5 @@ class FirebaseAuthManager {
     fun logOut() {
         Firebase.auth.signOut()
     }
+
 }
