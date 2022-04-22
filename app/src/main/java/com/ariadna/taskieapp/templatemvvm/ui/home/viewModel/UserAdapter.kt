@@ -1,11 +1,16 @@
 package com.ariadna.taskieapp.templatemvvm.ui.home.viewModel
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.ariadna.taskieapp.R
+import com.ariadna.taskieapp.R.*
 import com.ariadna.taskieapp.databinding.ListItemBinding
 import com.ariadna.taskieapp.templatemvvm.data.repository.data.PriorityColor
 import com.ariadna.taskieapp.templatemvvm.data.repository.data.UserDataNotes
@@ -20,16 +25,49 @@ class UserAdapter(private val noteList: ArrayList<UserDataNotes> ): RecyclerView
 
             when(userDataNotes.priorityColor){
                 PriorityColor.HIGH -> {
-                    binding.container.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color.dark_indigo))
+                    binding.container.setCardBackgroundColor(ContextCompat.getColor(itemView.context, color.dark_indigo))
                 }
                 PriorityColor.MEDIUM -> {
-                    binding.container.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color.p_dark_blue))
+                    binding.container.setCardBackgroundColor(ContextCompat.getColor(itemView.context, color.p_dark_blue))
                 }
                 PriorityColor.LOW -> {
-                    binding.container.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color.primary_blue))
+                    binding.container.setCardBackgroundColor(ContextCompat.getColor(itemView.context, color.primary_blue))
                 }
             }
 
+            binding.moreOptions.setOnClickListener {
+                popupMenu(it)
+            }
+        }
+        private fun popupMenu(view: View) {
+            val popupMenu = PopupMenu(view.context, view)
+            popupMenu.inflate(menu.show_options)
+            popupMenu.setOnMenuItemClickListener {
+                when(it.itemId){
+                    id.deleteNote->{
+                        AlertDialog.Builder(binding.root.context)
+                            .setTitle("Eliminar nota")
+                            .setIcon(drawable.ic_baseline_warning)
+                            .setMessage("¿Estás seguro(a) de querer eliminar esta nota?")
+                            .setPositiveButton("Sí")  {
+                                    dialog,_->
+                                    deleteNote(position = 0)
+                                    Toast.makeText(binding.root.context,"Nota eliminada", Toast.LENGTH_SHORT).show()
+                                    Log.e("task message","nota borrada")
+                                    dialog.dismiss()
+                            }
+                            .setNegativeButton("No"){
+                                    dialog,_->
+                                dialog.dismiss()
+                            }
+                            .create()
+                            .show()
+                        true
+                    }
+                    else -> {true}
+                }
+            }
+            popupMenu.show()
         }
     }
 
@@ -57,4 +95,9 @@ class UserAdapter(private val noteList: ArrayList<UserDataNotes> ): RecyclerView
         notifyDataSetChanged()
     }
 
+    fun deleteNote (position: Int){
+        noteList.removeAt(position)
+        notifyItemRemoved(position)
+        Log.e("adapter", "cantidad elementos ${noteList.size}")
+    }
 }
